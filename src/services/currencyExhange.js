@@ -16,9 +16,7 @@ export async function exchangeCurrency(to, from, amount) {
       requestOptions
     );
 
-    const parsedData = data.json();
-
-    return parsedData;
+    return data.json();
   } catch (error) {
     console.log(error);
   }

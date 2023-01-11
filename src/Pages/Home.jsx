@@ -1,10 +1,8 @@
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { getCurrency } from 'services/getCurrency';
-
-import { MainForm } from 'components/MainForm/MainForm';
+import { MainForm } from 'components/MainForm';
 import { exchangeCurrency } from 'services/currencyExhange';
-import ExchangeResult from 'components/ExchangeResult/ExchangeResult';
+import { ExchangeResult } from 'components/ExchangeResult';
 
 export const Home = () => {
   const [currency, setCurrency] = useState('USD');
@@ -14,9 +12,6 @@ export const Home = () => {
   useEffect(() => {
     function success(pos) {
       const crd = pos.coords;
-
-      console.log(`Latitude : ${crd.latitude}`);
-      console.log(`Longitude: ${crd.longitude}`);
 
       getCurrency(crd.latitude, crd.longitude)
         .then(data =>
@@ -61,7 +56,6 @@ export const Home = () => {
   }, [value]);
 
   const mainFormSubmit = inputValue => {
-    console.log(inputValue);
     setValue(inputValue);
   };
   return (
