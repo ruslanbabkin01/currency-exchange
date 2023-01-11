@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/currency-exchange">
+    <BrowserRouter basename="/currency-exchange/">
       <App />
     </BrowserRouter>
   </React.StrictMode>
