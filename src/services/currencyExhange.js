@@ -1,7 +1,7 @@
-const API_KEY = 'Bqf0jgud3HsN3E435u3LbG7qgqDyjvOj';
+const API_KEY_PLAYER = 'Bqf0jgud3HsN3E435u3LbG7qgqDyjvOj';
 
 const myHeaders = new Headers();
-myHeaders.append('apikey', API_KEY);
+myHeaders.append('apikey', API_KEY_PLAYER);
 
 const requestOptions = {
   method: 'GET',

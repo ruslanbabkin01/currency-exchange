@@ -1,7 +1,7 @@
 export const ExchangeResult = ({ result, requestedExchange }) => {
   return (
-    <div>
-      {requestedExchange}: {result}
+    <div className="text-center text-lg">
+      {requestedExchange}: {result.toFixed(2)}
     </div>
   );
 };

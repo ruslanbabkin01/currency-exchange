@@ -59,12 +59,14 @@ export const Home = () => {
     setValue(inputValue);
   };
   return (
-    <>
-      <h1>Your current currency: {currency}</h1>
+    <div className="sticky top-0 left-0 z-50  min-h-min px-6 py-3  shadow-xl">
+      <h1 className="font-semibold text-center my-2">
+        Your current currency: {currency}
+      </h1>
       <MainForm setValue={mainFormSubmit} />
       {exchangeResult && (
         <ExchangeResult requestedExchange={value} result={exchangeResult} />
       )}
-    </>
+    </div>
   );
 };
