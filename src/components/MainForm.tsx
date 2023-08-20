@@ -1,8 +1,12 @@
-export const MainForm = ({ setValue = () => {} }) => {
-  const handleSubmit = e => {
+interface MainFormProps {
+  setValue: (data: string) => void;
+}
+
+export const MainForm: React.FC<MainFormProps> = ({ setValue }) => {
+  const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
-    const data = form.elements.cur.value;
+    const data = (form.elements.namedItem('cur') as HTMLInputElement).value;
     setValue(data);
     form.reset();
   };
@@ -16,7 +20,7 @@ export const MainForm = ({ setValue = () => {} }) => {
       <input
         type="text"
         name="cur"
-        placeholder="please entry text as - 15 USD in UAH "
+        placeholder="please entry text as - 15 USD in UAH"
         className="my-2 py-1 inline-block w-full  px-1 border-2 border-black rounded-md"
       />
       <button

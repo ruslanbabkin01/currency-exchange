@@ -3,7 +3,6 @@ import { AppBar } from './AppBar';
 import { Home } from '../Pages/Home';
 import { ExchangeRates } from '../Pages/ExchangeRates';
 
-
 export const App = () => {
   return (
     <Routes>

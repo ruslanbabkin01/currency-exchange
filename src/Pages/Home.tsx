@@ -1,26 +1,27 @@
 import { useState, useEffect } from 'react';
-import { getCurrency } from 'services/getCurrency';
-import { MainForm } from 'components/MainForm';
-import { exchangeCurrency } from 'services/currencyExhange';
-import { ExchangeResult } from 'components/ExchangeResult';
+import { getCurrency } from '../services/getCurrency';
+import { exchangeCurrency } from '../services/currencyExchange';
+import { MainForm } from '../components/MainForm';
+import { ExchangeResult } from '../components/ExchangeResult';
+import { AxiosResponse } from 'axios';
 
 export const Home = () => {
   const [currency, setCurrency] = useState('USD');
   const [value, setValue] = useState('');
-  const [exchangeResult, setExchangeResult] = useState(null);
+  const [exchangeResult, setExchangeResult] = useState<any>(null);
 
   useEffect(() => {
-    function success(pos) {
+    function success(pos: any) {
       const crd = pos.coords;
 
       getCurrency(crd.latitude, crd.longitude)
-        .then(data =>
-          setCurrency(data.results[0].annotations.currency.iso_code)
+        .then((res: AxiosResponse<any>) =>
+          setCurrency(res.data.results[0].annotations.currency.iso_code)
         )
         .catch(error => console.log(error));
     }
 
-    function error(err) {
+    function error(err: any) {
       setCurrency('USD');
       console.warn(`ERROR(${err.code}): ${err.message}`);
     }
@@ -55,9 +56,10 @@ export const Home = () => {
     }
   }, [value]);
 
-  const mainFormSubmit = inputValue => {
+  const mainFormSubmit = (inputValue: any) => {
     setValue(inputValue);
   };
+
   return (
     <div className="sticky top-0 left-0 z-50  min-h-min px-6 py-3  shadow-xl">
       <h1 className="font-semibold text-center my-2">
