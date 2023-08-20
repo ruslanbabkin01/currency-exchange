@@ -1,7 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import { AppBar } from './AppBar';
-import { ExchangeRates } from 'Pages/ExchangeRates';
-import { Home } from 'Pages/Home';
+import { Home } from '../Pages/Home';
+import { ExchangeRates } from '../Pages/ExchangeRates';
+
 
 export const App = () => {
   return (

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getLatest } from 'services/currencyExhange';
+import { getLatest } from '../services/currencyExhange';
 
 export const ExchangeRates = () => {
   const [rates, setRates] = useState(null);
